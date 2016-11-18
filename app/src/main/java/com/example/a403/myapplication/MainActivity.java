@@ -11,8 +11,7 @@ public class MainActivity extends AppCompatActivity {
     EditText editText, editText2;
     Button button, button2, button3, button4, button5;
     TextView textView;
-    int num1=0, num2=0;
-    int Result=0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,46 +28,51 @@ public class MainActivity extends AppCompatActivity {
         textView = (TextView) findViewById(R.id.textView3);
 
 
-
-
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                num1 = Integer.parseInt(editText.getText().toString());
-                num2 = Integer.parseInt(editText2.getText().toString());
-                Result = num1+num2;
-                textView.setText("계산결과 :"+Result);
+                calculator('+');
             }
         });
 
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                num1 = Integer.parseInt(editText.getText().toString());
-                num2 = Integer.parseInt(editText2.getText().toString());
-                Result = num1-num2;
-                textView.setText("계산결과 :"+Result);
+                calculator('-');
             }
         });
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                num1 = Integer.parseInt(editText.getText().toString());
-                num2 = Integer.parseInt(editText2.getText().toString());
-                Result = num1*num2;
-                textView.setText("계산결과 :"+Result);
+                calculator('*');
             }
         });
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                num1 = Integer.parseInt(editText.getText().toString());
-                num2 = Integer.parseInt(editText2.getText().toString());
-                Result = num1/num2;
-                textView.setText("계산결과 :"+Result);
+                calculator('/');
             }
         });
+        button5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calculator('%');
+            }
+        });
+    }
 
+    void calculator(char op){
+        int num1=0, num2=0;
+        int Result=0;
 
+        num1 = Integer.parseInt(editText.getText().toString());
+        num2 = Integer.parseInt(editText2.getText().toString());
+        if (op=='+') Result = num1+num2;
+        if (op=='-') Result = num1+num2;
+        if (op=='*') Result = num1+num2;
+        if (op=='/') Result = num1+num2;
+        if (op=='%') Result = num1+num2;
+
+        textView.setText("계산결과 :"+Result);
     }
 }
