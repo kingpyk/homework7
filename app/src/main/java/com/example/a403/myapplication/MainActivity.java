@@ -68,10 +68,10 @@ public class MainActivity extends AppCompatActivity {
         num1 = Integer.parseInt(editText.getText().toString());
         num2 = Integer.parseInt(editText2.getText().toString());
         if (op=='+') Result = num1+num2;
-        if (op=='-') Result = num1+num2;
-        if (op=='*') Result = num1+num2;
-        if (op=='/') Result = num1+num2;
-        if (op=='%') Result = num1+num2;
+        if (op=='-') Result = num1-num2;
+        if (op=='*') Result = num1*num2;
+        if (op=='/') Result = num1/num2;
+        if (op=='%') Result = num1%num2;
 
         textView.setText("계산결과 :"+Result);
     }
